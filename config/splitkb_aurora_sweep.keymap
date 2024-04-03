@@ -5,98 +5,370 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-
-
-&mt {
-  //  flavor = "tap-preferred";
-   // tapping-term-ms = <200>;
-};
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
-
     combos {
         compatible = "zmk,combos";
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
+
+        sym2combo {
+            bindings = <&mo 3>;
+            key-positions = <33 31>;
+            layers = <0 1 2 3>;
         };
 
-         combo_tab {
-            timeout-ms = <50>;
+        num-lk_dot {
+            bindings = <&kp KP_DOT>;
+            key-positions = <31 20>;
+            layers = <5>;
+            timeout-ms = <1000>;
+        };
+
+        qs_s {
+            bindings = <&kp LS(LC(S))>;
             key-positions = <10 11>;
-            bindings = <&kp TAB>;
+            layers = <4>;
         };
-
-            combo_ralt {
-            timeout-ms = <50>;
-            key-positions = <17 16>;
-            bindings = <&kp RALT>;
-        };
-
-                    combo_lalt {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&kp LALT>;
-        };
-
-                           combo_lgui {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&kp LGUI>;
-        };
-
-
-       combo_rgui {
-            timeout-ms = <50>;
-            key-positions = <17 18>;
-            bindings = <&kp RGUI>;
-        };
-
-
-
     };
 
-        keymap {
-                compatible = "zmk,keymap";
+    macros {
+        super2: super2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N2 &kp KP_NUMBER_5 &kp KP_NUMBER_3>,
+                <&macro_release>,
+                <&kp LALT>;
 
-            default_layer {
-        bindings = <
-        &kp Q &kp W &kp E &kp R &kp T                       &kp Y &kp U  &kp I    &kp O   &kp P
-        &kp A &kp S &kp D &kp F &kp G                               &kp H &kp J &kp K &kp L &kp QUOT
-        &mt LSFT Z &kp X &kp C &kp V &kp B                      &kp N &kp M  &kp CMMA &kp DOT &mt LSFT RET
-                        &mo 1 &kp LCTL                  &kp SPC &mo 2
-        >;
+            label = "SUPER2";
+            wait-ms = <30>;
+            tap-ms = <30>;
         };
 
-            left_layer {
-        bindings = <
-        &kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5     &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0
-        &kp TAB    &kp LC(S)    &kp DQT      &kp PIPE2     &kp HASH         &kp MINUS &kp EQL  &kp LBKT &kp RBKT  &kp DEL
-        &kp ESC    &kp TILDE    &kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2     &kp MINUS &kp GRAVE &kp LBKT &kp RBKT  &kp DEL
-                        &mo 1  &kp LGUI                     &kp RGUI &mo 2
-        >;
+        miuku_mauku: miuku_mauku {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N6 &kp KP_N4>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "MIUKU_MAUKU";
+            wait-ms = <30>;
+            tap-ms = <30>;
         };
 
-        right_layer {
-        bindings = <
-        &kp BANG  &kp ATSN &kp HASH  &kp DLLR  &kp PRCT             &kp CRRT  &kp AMPS &kp KMLT &kp LPRN &kp RPRN
-        &kp HASH  &kp QMARK  &kp FSLH  &kp COLN  &kp SCLN           &kp MINUS &kp KP_EQUAL  &kp LBRC  &kp RBRC   &kp BKSP
-        &kp LSFT  &kp KPLS &kp LBKT &kp RBKT   &kp BSLH             &kp UNDER &kp LEFT &kp DOWN &kp UP  &kp RIGHT
-                      &mo 3 &kp LCTL                &kp SPC  &mo 2
-        >;
+        super3: SUPER3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_NUMBER_1 &kp KP_NUMBER_7 &kp KP_N9>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "SUPER3";
+            wait-ms = <30>;
+            tap-ms = <30>;
         };
 
-        tri_layer {
-        bindings = <
-        &kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5             &trans &trans   &trans   &trans  &trans
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                          &trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans
-        &bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7                 &trans &kp PG_DN  &kp K_VOL_DN  &trans &trans
-                     &trans &trans                      &trans &trans
-        >;
+        punta: PUNTA {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_1 &kp KP_NUMBER_5 &kp KP_N6>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "PUNTA";
+            wait-ms = <30>;
+            tap-ms = <30>;
         };
 
+        supero: SUPERO {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_NUMBER_1 &kp KP_NUMBER_7 &kp KP_N6>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "SUPERO";
+            wait-ms = <30>;
+            tap-ms = <30>;
+        };
+
+        vaehemmaen: vaehemmaen {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N6 &kp KP_NUMBER_0>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "VAEHEMMAEN";
+            wait-ms = <30>;
+            tap-ms = <30>;
+        };
+
+        enemmaen: enemmaen {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N6 &kp KP_N2>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "ENEMMAEN";
+            wait-ms = <30>;
+            tap-ms = <30>;
+        };
+
+        piippu: piippu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N1 &kp KP_N2 &kp KP_N4>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "PIIPPU";
+            wait-ms = <30>;
+            tap-ms = <30>;
+        };
+    };
+
+    behaviors {
+        mo_tg_behavior: mo_tg_behavior {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_TG_BEHAVIOR";
+            bindings = <&mo>, <&lt>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <(-1)>;
+            require-prior-idle-ms = <200>;
+        };
+
+        qs_c: qs_c {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_C";
+            bindings = <&kp LC(C)>, <&kp C>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_v: qs_v {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_V";
+            bindings = <&kp LC(V)>, <&kp V>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_z: qs_z {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_Z";
+            bindings = <&kp LC(Z)>, <&kp Z>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_x: qs_x {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_X";
+            bindings = <&kp LC(X)>, <&kp X>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_b: qs_b {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_B";
+            bindings = <&kp LC(B)>, <&kp B>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_n: qs_n {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_N";
+            bindings = <&kp LC(N)>, <&kp N>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_p: qs_p {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_P";
+            bindings = <&kp LC(P)>, <&kp P>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_r: qs_r {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_R";
+            bindings = <&kp LC(R)>, <&kp R>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_d: qs_d {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_D";
+            bindings = <&kp LC(D)>, <&kp D>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        qs_w: qs_w {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_W";
+            bindings = <&kp LC(W)>, <&kp W>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        mod_mod_t: mod_mod_t {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_MOD_T";
+            bindings = <&kp>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+
+        qs_t: qs_t {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_T";
+            bindings = <&kp LC(T)>, <&kp T>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LGUI|MOD_LCTL|MOD_LSFT)>;
+            keep-mods = <(MOD_LGUI|MOD_LCTL|MOD_LSFT)>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        qwerty_layer {
+            bindings = <
+&kp Q                &kp W        &kp E       &kp R           &kp T    &kp Y  &kp U       &kp I       &kp O            &kp P
+&kp A                &mt LCTRL S  &mt LWIN D  &mt LEFT_ALT F  &kp G    &kp H  &mt RALT J  &mt RWIN K  &mt RCTRL L      &kp SEMI
+&kp Z                &kp X        &kp C       &kp V           &kp B    &kp N  &kp M       &kp COMMA   &kp DOT          &kp SQT
+&mo_tg_behavior 4 5  &kp SPACE                                                                        &kp RIGHT_SHIFT  &mo 2
+            >;
+        };
+
+        aewdrp_layer {
+            bindings = <
+&kp SQT  &trans  &kp D       &trans          &kp P     &kp F   &kp K            &kp U        &kp Y   &kp SEMICOLON
+&trans   &trans  &mt LWIN E  &mt LEFT_ALT T  &trans    &trans  &mt RIGHT_ALT L  &mt RMETA I  &trans  &kp O
+&trans   &trans  &trans      &trans          &trans    &kp J   &trans           &trans       &trans  &kp Q
+&trans   &trans                                                                              &trans  &trans
+            >;
+        };
+
+        sym_layer {
+            bindings = <
+&kp EXCL     &miuku_mauku          &kp HASH       &kp PERCENT  &punta                   &kp LS(NUMBER_6)   &kp LS(NUMBER_2)  &kp LA(LC(N8))  &kp LC(LA(N8))  &kp LS(MINUS)
+&piippu      &kp LC(LA(NUMBER_4))  &kp LC(LA(E))  &super2      &kp GRAVE                &kp EQUAL          &kp LS(N7)        &kp LS(N8)      &kp LS(N9)      &kp NON_US_BACKSLASH
+&vaehemmaen  &enemmaen             &supero        &super3      &kp LS(RIGHT_BRACKET)    &kp RIGHT_BRACKET  &kp BACKSLASH     &kp LA(LC(N7))  &kp LC(LA(N0))  &kp SLASH
+&trans       &mo 3                                                                                                                           &none           &trans
+            >;
+        };
+
+        sym2_layer {
+            bindings = <
+&kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_PLUS        &none                      &none  &tog 1         &none        &none
+&kp KP_MULTIPLY  &kp NUMBER_4  &kp N5        &kp N6        &kp N0             &kp LS(EQUAL)              &none  &kp KP_LPAR    &kp KP_RPAR  &kp KP_MULTIPLY
+&kp KP_COMMA     &kp N7        &kp N8        &kp N9        &kp KP_SUBTRACT    &kp LS(LC(RIGHT_BRACKET))  &none  &kp LS(COMMA)  &kp LS(DOT)  &kp SLASH
+&trans           &trans                                                                                                        &none        &trans
+            >;
+        };
+
+        nav_layer {
+            bindings = <
+&kp ESCAPE        &qs_w            &qs_d         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END     &kp PG_UP
+&mt LSHIFT LC(A)  &mt LCTRL LC(S)  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT   &kp DEL
+&qs_z             &qs_x            &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_MENU  &kp PG_DN
+&trans            &none                                                                                               &none       &trans
+            >;
+        };
+
+        num-lk_layer {
+            bindings = <
+&kp KP_SLASH     &kp KP_N1  &kp KP_NUMBER_2  &kp KP_N3  &kp KP_PLUS     &trans  &trans  &trans  &trans  &trans
+&kp KP_MULTIPLY  &kp KP_N4  &kp KP_N5        &kp KP_N6  &kp KP_N0       &trans  &trans  &trans  &trans  &trans
+&kp KP_COMMA     &kp KP_N7  &kp KP_N8        &kp KP_N9  &kp KP_MINUS    &trans  &trans  &trans  &trans  &trans
+&trans           &kp ENTER                                                                      &none   &trans
+            >;
+        };
+
+        func_layer {
+            bindings = <
+&kp CAPS      &kp K_VOL_DN  &kp K_MUTE        &kp K_VOL_UP  &bt BT_NXT    &kp PRINTSCREEN  &kp F1  &kp F2   &kp F3   &kp F4
+&kp LSHIFT    &kp LCTRL     &kp LWIN          &kp LALT      &bt BT_PRV    &kp SLCK         &kp F5  &kp F6   &kp F7   &kp F8
+&out OUT_TOG  &kp K_PREV    &kp K_PLAY_PAUSE  &kp K_NEXT    &bt BT_CLR    &kp PAUSE_BREAK  &kp F9  &kp F10  &kp F11  &kp F12
+&trans        &none                                                                                         &none    &trans
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        function {
+            if-layers = <2 4>;
+            then-layer = <6>;
+        };
     };
 };
