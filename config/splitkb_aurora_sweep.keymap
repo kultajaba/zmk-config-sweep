@@ -19,17 +19,15 @@
             layers = <0 1 2 3>;
         };
 
-        num-lk_dot {
-            bindings = <&kp KP_DOT>;
-            key-positions = <31 20>;
-            layers = <5>;
-            timeout-ms = <1000>;
-        };
-
         qs_s {
             bindings = <&kp LS(LC(S))>;
             key-positions = <10 11>;
             layers = <4>;
+        };
+
+        lenter {
+            bindings = <&kp ENTER>;
+            key-positions = <30 31>;
         };
     };
 
@@ -172,7 +170,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <(-1)>;
-            require-prior-idle-ms = <200>;
         };
 
         qs_c: qs_c {
@@ -278,7 +275,7 @@
         mod_mod_t: mod_mod_t {
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_MOD_T";
-            bindings = <&kp>, <&none>;
+            bindings = <&kp>, <&qs_t>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -294,6 +291,46 @@
             mods = <(MOD_LGUI|MOD_LCTL|MOD_LSFT)>;
             keep-mods = <(MOD_LGUI|MOD_LCTL|MOD_LSFT)>;
         };
+
+        qs_s: qs_s {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_S";
+            bindings = <&kp LC(S)>, <&kp S>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LGUI)>;
+            keep-mods = <(MOD_LSFT|MOD_LGUI)>;
+        };
+
+        qs_a: qs_a {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_A";
+            bindings = <&kp LC(A)>, <&kp A>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LGUI|MOD_LCTL|MOD_LALT)>;
+            keep-mods = <(MOD_LGUI|MOD_LCTL|MOD_LALT)>;
+        };
+
+        mod_mod_s: mod_mod_s {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_MOD_S";
+            bindings = <&kp>, <&qs_s>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+
+        mod_mod_a: mod_mod_a {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_MOD_A";
+            bindings = <&kp>, <&qs_a>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -301,18 +338,18 @@
 
         qwerty_layer {
             bindings = <
-&kp Q                &kp W        &kp E       &kp R           &kp T    &kp Y  &kp U       &kp I       &kp O            &kp P
-&kp A                &mt LCTRL S  &mt LWIN D  &mt LEFT_ALT F  &kp G    &kp H  &mt RALT J  &mt RWIN K  &mt RCTRL L      &kp SEMI
-&kp Z                &kp X        &kp C       &kp V           &kp B    &kp N  &kp M       &kp COMMA   &kp DOT          &kp SQT
-&mo_tg_behavior 4 5  &kp SPACE                                                                        &kp RIGHT_SHIFT  &mo 2
+&kp Q                &kp W        &kp E       &kp R           &kp T    &kp Y  &kp U       &kp I       &kp O             &kp P
+&mt LSHIFT A         &mt LCTRL S  &mt LWIN D  &mt LEFT_ALT F  &kp G    &kp H  &mt RALT J  &mt RWIN K  &mt RCTRL L       &mt RSHIFT SEMICOLON
+&kp Z                &kp X        &kp C       &kp V           &kp B    &kp N  &kp M       &kp COMMA   &kp DOT           &kp SQT
+&mo_tg_behavior 4 6  &kp SPACE                                                                        &mt RSHIFT ENTER  &mo 2
             >;
         };
 
         aewdrp_layer {
             bindings = <
-&kp SQT  &trans  &kp D       &trans          &kp P     &kp F   &kp K            &kp U        &kp Y   &kp SEMICOLON
-&trans   &trans  &mt LWIN E  &mt LEFT_ALT T  &trans    &trans  &mt RIGHT_ALT L  &mt RMETA I  &trans  &kp O
-&trans   &trans  &trans      &trans          &trans    &kp J   &trans           &trans       &trans  &kp Q
+&kp SQT  &trans  &kp D       &trans          &kp P     &kp J   &kp K            &kp U        &kp Y   &kp SEMICOLON
+&trans   &trans  &mt LWIN E  &mt LEFT_ALT T  &trans    &trans  &mt RIGHT_ALT N  &mt RMETA I  &trans  &mt RSHIFT O
+&trans   &trans  &trans      &trans          &trans    &kp F   &trans           &trans       &trans  &kp Q
 &trans   &trans                                                                              &trans  &trans
             >;
         };
@@ -328,28 +365,19 @@
 
         sym2_layer {
             bindings = <
-&kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_PLUS        &none                      &none  &tog 1         &none        &none
-&kp KP_MULTIPLY  &kp NUMBER_4  &kp N5        &kp N6        &kp N0             &kp LS(EQUAL)              &none  &kp KP_LPAR    &kp KP_RPAR  &kp KP_MULTIPLY
-&kp KP_COMMA     &kp N7        &kp N8        &kp N9        &kp KP_SUBTRACT    &kp LS(LC(RIGHT_BRACKET))  &none  &kp LS(COMMA)  &kp LS(DOT)  &kp SLASH
-&trans           &trans                                                                                                        &none        &trans
+&kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS    &none                      &none  &tog 1         &none        &none
+&kp KP_MULTIPLY  &kp NUMBER_4  &kp N5        &kp N6        &kp N0       &kp LS(EQUAL)              &none  &kp KP_LPAR    &kp KP_RPAR  &kp KP_MULTIPLY
+&kp KP_COMMA     &kp N7        &kp N8        &kp N9        &kp SLASH    &kp LS(LC(RIGHT_BRACKET))  &none  &kp LS(COMMA)  &kp LS(DOT)  &kp SLASH
+&trans           &trans                                                                                                  &none        &trans
             >;
         };
 
         nav_layer {
             bindings = <
-&kp ESCAPE        &qs_w            &qs_d         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END     &kp PG_UP
-&mt LSHIFT LC(A)  &mt LCTRL LC(S)  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT   &kp DEL
-&qs_z             &qs_x            &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_MENU  &kp PG_DN
-&trans            &none                                                                                               &none       &trans
-            >;
-        };
-
-        num-lk_layer {
-            bindings = <
-&kp KP_SLASH     &kp KP_N1  &kp KP_NUMBER_2  &kp KP_N3  &kp KP_PLUS     &trans  &trans  &trans  &trans  &trans
-&kp KP_MULTIPLY  &kp KP_N4  &kp KP_N5        &kp KP_N6  &kp KP_N0       &trans  &trans  &trans  &trans  &trans
-&kp KP_COMMA     &kp KP_N7  &kp KP_N8        &kp KP_N9  &kp KP_MINUS    &trans  &trans  &trans  &trans  &trans
-&trans           &kp ENTER                                                                      &none   &trans
+&kp ESCAPE           &qs_w               &qs_d         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END     &kp PG_UP
+&mod_mod_a LSHIFT 0  &mod_mod_s LCTRL 0  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT   &kp DEL
+&qs_z                &qs_x               &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_MENU  &kp PG_DN
+&trans               &none                                                                                                  &none       &trans
             >;
         };
 
@@ -361,6 +389,24 @@
 &trans        &none                                                                                         &none    &trans
             >;
         };
+
+        num-lk_layer {
+            bindings = <
+&kp KP_SLASH         &kp KP_N1  &kp KP_NUMBER_2  &kp KP_N3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW  &kp END     &kp PG_UP
+&kp KP_MULTIPLY      &kp KP_N4  &kp KP_N5        &kp KP_N6  &kp KP_N0       &kp TAB    &kp LEFT       &kp DOWN      &kp RIGHT   &kp DEL
+&kp KP_COMMA         &kp KP_N7  &kp KP_N8        &kp KP_N9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS       &kp K_MENU  &kp PG_DN
+&mo_tg_behavior 7 6  &kp ENTER                                                                                      &none       &none
+            >;
+        };
+
+        num-lk-qs-layer {
+            bindings = <
+&none       &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(MINUS)       &trans  &trans  &trans  &trans  &trans
+&none       &kp LC(NUMBER_4)  &kp LC(NUMBER_5)  &kp LC(NUMBER_6)  &kp LC(NUMBER_0)    &trans  &trans  &trans  &trans  &trans
+&kp KP_DOT  &kp LC(NUMBER_7)  &kp LC(NUMBER_8)  &kp LC(NUMBER_9)  &kp LC(SLASH)       &trans  &trans  &trans  &trans  &trans
+&trans      &none                                                                                             &trans  &trans
+            >;
+        };
     };
 
     conditional_layers {
@@ -368,7 +414,7 @@
 
         function {
             if-layers = <2 4>;
-            then-layer = <6>;
+            then-layer = <5>;
         };
     };
 };
