@@ -63,22 +63,6 @@
             tap-ms = <30>;
         };
 
-        punta: PUNTA {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp KP_NUMBER_1 &kp KP_NUMBER_5 &kp KP_N6>,
-                <&macro_release>,
-                <&kp LALT>;
-
-            label = "PUNTA";
-            wait-ms = <30>;
-            tap-ms = <30>;
-        };
-
         supero: SUPERO {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -321,8 +305,8 @@
             bindings = <&kp KP_N1>, <&kp NUMBER_1>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_2: qs_2 {
@@ -331,8 +315,8 @@
             bindings = <&kp KP_N2>, <&kp NUMBER_2>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_3: qs_3 {
@@ -341,8 +325,8 @@
             bindings = <&kp KP_N3>, <&kp NUMBER_3>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_4: qs_4 {
@@ -351,8 +335,8 @@
             bindings = <&kp KP_N4>, <&kp NUMBER_4>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_5: qs_5 {
@@ -361,8 +345,8 @@
             bindings = <&kp KP_N5>, <&kp NUMBER_5>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_6: qs_6 {
@@ -371,8 +355,8 @@
             bindings = <&kp KP_N6>, <&kp N6>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_7: qs_7 {
@@ -381,8 +365,8 @@
             bindings = <&kp KP_NUMBER_7>, <&kp N7>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_8: qs_8 {
@@ -391,8 +375,8 @@
             bindings = <&kp KP_N8>, <&kp N8>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_9: qs_9 {
@@ -401,8 +385,8 @@
             bindings = <&kp KP_N9>, <&kp N9>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
         qs_0: qs_0 {
@@ -411,13 +395,13 @@
             bindings = <&kp KP_N0>, <&kp NUMBER_0>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
-        mod_tg: mod_tg {
+        kp_tg: kp_tg {
             compatible = "zmk,behavior-hold-tap";
-            label = "MOD_TG";
+            label = "KP_TG";
             bindings = <&kp>, <&lt>;
 
             #binding-cells = <2>;
@@ -477,19 +461,10 @@
 
         num-lk_layer {
             bindings = <
-&kp KP_SLASH            &qs_1      &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW  &kp END     &kp PG_UP
-&mt LSHIFT KP_MULTIPLY  &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &kp DOWN      &kp RIGHT   &kp DEL
-&kp KP_COMMA            &qs_7      &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS       &kp K_MENU  &kp PG_DN
-&mo_tg_behavior 6 5     &kp ENTER                                                                        &none       &none
-            >;
-        };
-
-        num-lk-qs-layer {
-            bindings = <
-&none       &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(MINUS)       &trans  &trans  &trans  &trans  &trans
-&kp LSHIFT  &kp LC(NUMBER_4)  &kp LC(NUMBER_5)  &kp LC(NUMBER_6)  &kp LC(NUMBER_0)    &trans  &trans  &trans  &trans  &trans
-&kp KP_DOT  &kp LC(NUMBER_7)  &kp LC(NUMBER_8)  &kp LC(NUMBER_9)  &kp LC(SLASH)       &trans  &trans  &trans  &trans  &trans
-&trans      &none                                                                                             &trans  &trans
+&kp KP_SLASH            &qs_1      &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
+&mt LSHIFT KP_MULTIPLY  &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
+&kp KP_COMMA            &qs_7      &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
+&kp_tg LCTRL 5          &kp ENTER                                                                               &none       &none
             >;
         };
     };
