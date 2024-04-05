@@ -460,10 +460,10 @@
 
         num-lk_layer {
             bindings = <
-&kp KP_SLASH             &qs_1      &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
-&mt LSHIFT KP_MULTIPLY   &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
-&kp KP_COMMA             &qs_7      &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
-&kp_tg_behavior LCTRL 5  &kp ENTER                                                                               &none       &none
+&kp KP_SLASH            &qs_1            &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
+&mt LSHIFT KP_MULTIPLY  &qs_4            &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
+&kp KP_COMMA            &qs_7            &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
+&trans                  &mt LCTRL ENTER                                                                               &none       &none
             >;
         };
     };
