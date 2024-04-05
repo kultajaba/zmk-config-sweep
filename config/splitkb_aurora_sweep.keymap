@@ -13,12 +13,6 @@
     combos {
         compatible = "zmk,combos";
 
-        sym2combo {
-            bindings = <&mo 0>;
-            key-positions = <33 31>;
-            layers = <0 1 2>;
-        };
-
         lenter {
             bindings = <&kp ENTER>;
             key-positions = <30 31>;
@@ -27,6 +21,13 @@
         escape {
             bindings = <&kp ESC>;
             key-positions = <0 1>;
+        };
+
+        save_as {
+            bindings = <&kp LC(LS(S))>;
+            key-positions = <10 11>;
+            timeout-ms = <200>;
+            layers = <3>;
         };
     };
 
@@ -136,7 +137,6 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <(-1)>;
         };
 
         qs_c: qs_c {
@@ -399,14 +399,13 @@
             keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
-        kp_tg: kp_tg {
+        kp_tg_behavior: kp_tg_behavior {
             compatible = "zmk,behavior-hold-tap";
-            label = "KP_TG";
+            label = "KP_TG_BEHAVIOR";
             bindings = <&kp>, <&lt>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <(-1)>;
             flavor = "balanced";
         };
     };
@@ -461,10 +460,10 @@
 
         num-lk_layer {
             bindings = <
-&kp KP_SLASH            &qs_1      &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
-&mt LSHIFT KP_MULTIPLY  &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
-&kp KP_COMMA            &qs_7      &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
-&kp_tg LCTRL 5          &kp ENTER                                                                               &none       &none
+&kp KP_SLASH             &qs_1      &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
+&mt LSHIFT KP_MULTIPLY   &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
+&kp KP_COMMA             &qs_7      &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
+&kp_tg_behavior LCTRL 5  &kp ENTER                                                                               &none       &none
             >;
         };
     };
