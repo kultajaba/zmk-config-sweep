@@ -130,10 +130,10 @@
     };
 
     behaviors {
-        mo_tg_behavior: mo_tg_behavior {
+        mo_tog_behavior: mo_tog_behavior {
             compatible = "zmk,behavior-hold-tap";
-            label = "MO_TG_BEHAVIOR";
-            bindings = <&mo>, <&lt>;
+            label = "MO_TOG_BEHAVIOR";
+            bindings = <&mo>, <&tog>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -399,10 +399,10 @@
             keep-mods = <(MOD_LSFT|MOD_LCTL)>;
         };
 
-        kp_tg_behavior: kp_tg_behavior {
+        kp_tog_behavior: kp_tog_behavior {
             compatible = "zmk,behavior-hold-tap";
-            label = "KP_TG_BEHAVIOR";
-            bindings = <&kp>, <&lt>;
+            label = "KP_TOG_BEHAVIOR";
+            bindings = <&kp>, <&tog>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -415,10 +415,10 @@
 
         qwerty_layer {
             bindings = <
-&kp Q                &kp W      &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I      &kp O       &kp P
-&kp A                &kp S      &kp D  &kp F  &kp G    &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON
-&kp Z                &kp X      &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp SQT
-&mo_tg_behavior 3 5  &kp SPACE                                                  &kp RSHIFT  &mo 2
+&kp Q                 &kp W      &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I      &kp O       &kp P
+&kp A                 &kp S      &kp D  &kp F  &kp G    &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON
+&kp Z                 &kp X      &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp SQT
+&mo_tog_behavior 3 5  &kp SPACE                                                  &kp RSHIFT  &mo 2
             >;
         };
 
@@ -460,10 +460,10 @@
 
         num-lk_layer {
             bindings = <
-&kp KP_SLASH            &qs_1            &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
-&mt LSHIFT KP_MULTIPLY  &qs_4            &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
-&kp KP_COMMA            &qs_7            &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
-&trans                  &mt LCTRL ENTER                                                                               &none       &none
+&kp KP_SLASH              &qs_1            &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
+&mt LSHIFT KP_MULTIPLY    &qs_4            &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
+&kp KP_COMMA              &qs_7            &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
+&kp_tog_behavior LCTRL 5  &mt LCTRL ENTER                                                                               &none       &none
             >;
         };
     };
