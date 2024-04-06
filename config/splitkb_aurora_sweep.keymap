@@ -38,6 +38,18 @@
             timeout-ms = <200>;
             layers = <5>;
         };
+
+        qsdot {
+            bindings = <&kp PERIOD>;
+            key-positions = <30 20>;
+            layers = <5>;
+            timeout-ms = <175>;
+        };
+
+        symlaycombo {
+            bindings = <&mo 2>;
+            key-positions = <31 33>;
+        };
     };
 
     macros {
@@ -387,7 +399,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
-            keep-mods = <(MOD_LCTL)>;
         };
     };
 
