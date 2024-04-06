@@ -443,8 +443,8 @@
         sym_layer {
             bindings = <
 &kp EXCL     &kp LC(LA(NUMBER_2))  &kp HASH       &kp PERCENT  &kp LC(LA(NUMBER_3))         &kp LS(NUMBER_6)   &kp LS(NUMBER_2)   &kp LA(LC(N8))  &kp LC(LA(N8))  &kp LS(MINUS)
-&piippu      &kp LC(LA(NUMBER_4))  &kp LC(LA(E))  &super2      &kp GRAVE                    &kp EQUAL          &kp LS(N7)         &kp LS(N8)      &kp LS(N9)      &kp NON_US_BACKSLASH
-&vaehemmaen  &enemmaen             &supero        &super3      &kp LS(LC(RIGHT_BRACKET))    &kp RIGHT_BRACKET  &kp LA(LC(MINUS))  &kp LA(LC(N7))  &kp LC(LA(N0))  &kp SLASH
+&piippu      &kp LC(LA(NUMBER_4))  &kp LC(LA(E))  &super2      &kp GRAVE                    &kp EQUAL          &kp LS(N7)         &kp LS(N8)      &kp LS(N9)      &kp BACKSLASH
+&vaehemmaen  &enemmaen             &supero        &super3      &kp LC(LA(RIGHT_BRACKET))    &kp RIGHT_BRACKET  &kp LA(LC(MINUS))  &kp LA(LC(N7))  &kp LC(LA(N0))  &kp SLASH
 &trans       &kp LSHFT                                                                                                                            &none           &trans
             >;
         };
@@ -467,7 +467,7 @@
             >;
         };
 
-        num-lk_layer {
+        num_layer {
             bindings = <
 &kp KP_SLASH              &qs_1            &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
 &mt LSHIFT KP_MULTIPLY    &qs_4            &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
