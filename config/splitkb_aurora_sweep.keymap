@@ -16,7 +16,7 @@
         lenter {
             bindings = <&kp ENTER>;
             key-positions = <30 31>;
-            timeout-ms = <150>;
+            timeout-ms = <200>;
         };
 
         escape {
@@ -29,14 +29,14 @@
             bindings = <&kp LC(LS(S))>;
             key-positions = <10 11>;
             timeout-ms = <200>;
-            layers = <4>;
+            layers = <3>;
         };
 
         num-lk-toggle {
             bindings = <&kp KP_NUMLOCK>;
             key-positions = <4 3>;
             timeout-ms = <200>;
-            layers = <6>;
+            layers = <5>;
         };
     };
 
@@ -389,7 +389,7 @@
 &kp Q                 &kp W      &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I      &kp O       &kp P
 &kp A                 &kp S      &kp D  &kp F  &kp G    &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON
 &kp Z                 &kp X      &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp SQT
-&mo_tog_behavior 4 6  &kp SPACE                                                  &kp RSHIFT  &mo 3
+&mo_tog_behavior 3 5  &kp SPACE                                                  &kp RSHIFT  &mo 2
             >;
         };
 
@@ -402,15 +402,6 @@
             >;
         };
 
-        mods_layer {
-            bindings = <
-&trans                         &trans                        &trans                       &trans                       &trans    &trans  &trans                       &trans                       &trans                        &trans
-&mod_trans_behaviour LSHIFT 0  &mod_trans_behaviour LCTRL 0  &mod_trans_behaviour LWIN 0  &mod_trans_behaviour LALT 0  &trans    &trans  &mod_trans_behaviour RALT 0  &mod_trans_behaviour RWIN 0  &mod_trans_behaviour RCTRL 0  &mod_trans_behaviour RSHIFT 0
-&trans                         &trans                        &trans                       &trans                       &trans    &trans  &trans                       &trans                       &trans                        &trans
-&trans                         &trans                                                                                                                                                              &mo 2                         &trans
-            >;
-        };
-
         sym_layer {
             bindings = <
 &kp EXCL                 &kp LC(LA(NUMBER_2))  &kp HASH       &kp PERCENT  &kp LC(LA(NUMBER_3))         &kp LS(NUMBER_6)   &kp LS(NUMBER_2)   &kp LA(LC(N8))  &kp LC(LA(N9))  &kp LS(MINUS)
@@ -420,30 +411,30 @@
             >;
         };
 
-        nav_layer {
+        command_layer {
             bindings = <
 &kp ESCAPE           &qs_w               &qs_d         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END     &kp PG_UP
 &mod_mod_a LSHIFT 0  &mod_mod_s LCTRL 0  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT   &kp DEL
 &qs_z                &qs_x               &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_MENU  &kp PG_DN
-&trans               &none                                                                                                  &mo 2       &trans
+&trans               &none                                                                                                  &none       &trans
             >;
         };
 
         func_layer {
             bindings = <
-&tog 1        &kp K_VOL_DN  &kp K_MUTE        &kp K_VOL_UP  &bt BT_NXT    &kp PRINTSCREEN  &kp F1  &kp F2   &kp F3   &kp F4
-&kp LSHIFT    &kp LCTRL     &kp LWIN          &kp LALT      &bt BT_PRV    &kp CAPSLOCK     &kp F5  &kp F6   &kp F7   &kp F8
-&out OUT_TOG  &kp K_PREV    &kp K_PLAY_PAUSE  &kp K_NEXT    &bt BT_CLR    &kp SCROLLLOCK   &kp F9  &kp F10  &kp F11  &kp F12
-&trans        &none                                                                                         &none    &trans
+&tog 1        &kp C_VOL_DN             &kp C_MUTE  &kp C_VOL_UP     &bt BT_NXT    &kp PRINTSCREEN  &kp F1  &kp F2   &kp F3   &kp F4
+&sk LSHIFT    &sk LCTRL                &sk LWIN    &sk LALT         &bt BT_PRV    &kp CAPSLOCK     &kp F5  &kp F6   &kp F7   &kp F8
+&out OUT_TOG  &mt C_REWIND C_PREVIOUS  &kp C_PP    &mt C_FF C_NEXT  &bt BT_CLR    &kp SCROLLLOCK   &kp F9  &kp F10  &kp F11  &kp F12
+&trans        &none                                                                                                 &none    &trans
             >;
         };
 
-        num_layer {
+        num-nav_layer {
             bindings = <
-&kp KP_SLASH              &qs_1            &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
-&mt LSHIFT KP_MULTIPLY    &qs_4            &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
-&kp KP_COMMA              &qs_7            &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
-&kp_tog_behavior LCTRL 6  &mt LCTRL ENTER                                                                               &none       &none
+&kp KP_SLASH              &qs_7            &qs_8  &qs_9  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END      &kp PG_UP
+&mt LSHIFT KP_MULTIPLY    &qs_4            &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT    &kp DEL
+&kp KP_COMMA              &qs_1            &qs_2  &qs_3  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_CMENU  &kp PG_DN
+&kp_tog_behavior LCTRL 5  &mt LCTRL ENTER                                                                               &none        &none
             >;
         };
     };
@@ -452,8 +443,8 @@
         compatible = "zmk,conditional-layers";
 
         function {
-            if-layers = <3 4>;
-            then-layer = <5>;
+            if-layers = <2 3>;
+            then-layer = <4>;
         };
     };
 };
