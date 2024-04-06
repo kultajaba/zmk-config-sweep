@@ -29,14 +29,14 @@
             bindings = <&kp LC(LS(S))>;
             key-positions = <10 11>;
             timeout-ms = <200>;
-            layers = <3>;
+            layers = <4>;
         };
 
         num-lk-toggle {
             bindings = <&kp KP_NUMLOCK>;
             key-positions = <4 3>;
             timeout-ms = <200>;
-            layers = <5>;
+            layers = <6>;
         };
     };
 
@@ -85,54 +85,6 @@
                 <&kp LALT>;
 
             label = "SUPERO";
-            wait-ms = <30>;
-            tap-ms = <30>;
-        };
-
-        vaehemmaen: vaehemmaen {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp KP_N6 &kp KP_NUMBER_0>,
-                <&macro_release>,
-                <&kp LALT>;
-
-            label = "VAEHEMMAEN";
-            wait-ms = <30>;
-            tap-ms = <30>;
-        };
-
-        enemmaen: enemmaen {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp KP_N6 &kp KP_N2>,
-                <&macro_release>,
-                <&kp LALT>;
-
-            label = "ENEMMAEN";
-            wait-ms = <30>;
-            tap-ms = <30>;
-        };
-
-        piippu: piippu {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp KP_N1 &kp KP_N2 &kp KP_N4>,
-                <&macro_release>,
-                <&kp LALT>;
-
-            label = "PIIPPU";
             wait-ms = <30>;
             tap-ms = <30>;
         };
@@ -417,6 +369,16 @@
             tapping-term-ms = <200>;
             flavor = "balanced";
         };
+
+        mod_trans_behaviour: mod_trans_behaviour {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TRANS_BEHAVIOUR";
+            bindings = <&kp>, <&trans>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -427,7 +389,7 @@
 &kp Q                 &kp W      &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I      &kp O       &kp P
 &kp A                 &kp S      &kp D  &kp F  &kp G    &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON
 &kp Z                 &kp X      &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp SQT
-&mo_tog_behavior 3 5  &kp SPACE                                                  &kp RSHIFT  &mo 2
+&mo_tog_behavior 4 6  &kp SPACE                                                  &kp RSHIFT  &mo 3
             >;
         };
 
@@ -440,12 +402,21 @@
             >;
         };
 
+        mods_layer {
+            bindings = <
+&trans                         &trans                        &trans                       &trans                       &trans    &trans  &trans                       &trans                       &trans                        &trans
+&mod_trans_behaviour LSHIFT 0  &mod_trans_behaviour LCTRL 0  &mod_trans_behaviour LWIN 0  &mod_trans_behaviour LALT 0  &trans    &trans  &mod_trans_behaviour RALT 0  &mod_trans_behaviour RWIN 0  &mod_trans_behaviour RCTRL 0  &mod_trans_behaviour RSHIFT 0
+&trans                         &trans                        &trans                       &trans                       &trans    &trans  &trans                       &trans                       &trans                        &trans
+&trans                         &trans                                                                                                                                                              &mo 2                         &trans
+            >;
+        };
+
         sym_layer {
             bindings = <
-&kp EXCL     &kp LC(LA(NUMBER_2))  &kp HASH       &kp PERCENT  &kp LC(LA(NUMBER_3))         &kp LS(NUMBER_6)   &kp LS(NUMBER_2)   &kp LA(LC(N8))  &kp LC(LA(N8))  &kp LS(MINUS)
-&piippu      &kp LC(LA(NUMBER_4))  &kp LC(LA(E))  &super2      &kp GRAVE                    &kp EQUAL          &kp LS(N7)         &kp LS(N8)      &kp LS(N9)      &kp BACKSLASH
-&vaehemmaen  &enemmaen             &supero        &super3      &kp LC(LA(RIGHT_BRACKET))    &kp RIGHT_BRACKET  &kp LA(LC(MINUS))  &kp LA(LC(N7))  &kp LC(LA(N0))  &kp SLASH
-&trans       &kp LSHFT                                                                                                                            &none           &trans
+&kp EXCL                 &kp LC(LA(NUMBER_2))  &kp HASH       &kp PERCENT  &kp LC(LA(NUMBER_3))         &kp LS(NUMBER_6)   &kp LS(NUMBER_2)   &kp LA(LC(N8))  &kp LC(LA(N9))  &kp LS(MINUS)
+&kp LC(LA(NON_US_BSLH))  &kp LC(LA(NUMBER_4))  &kp LC(LA(E))  &super2      &kp GRAVE                    &kp EQUAL          &kp LS(N7)         &kp LS(N8)      &kp LS(N9)      &kp BACKSLASH
+&kp NON_US_BSLH          &kp LS(NON_US_BSLH)   &supero        &super3      &kp LC(LA(RIGHT_BRACKET))    &kp RIGHT_BRACKET  &kp LA(LC(MINUS))  &kp LA(LC(N7))  &kp LC(LA(N0))  &kp SLASH
+&trans                   &kp LSHFT                                                                                                                            &none           &trans
             >;
         };
 
@@ -454,7 +425,7 @@
 &kp ESCAPE           &qs_w               &qs_d         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END     &kp PG_UP
 &mod_mod_a LSHIFT 0  &mod_mod_s LCTRL 0  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT   &kp DEL
 &qs_z                &qs_x               &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_MENU  &kp PG_DN
-&trans               &none                                                                                                  &none       &trans
+&trans               &none                                                                                                  &mo 2       &trans
             >;
         };
 
@@ -472,7 +443,7 @@
 &kp KP_SLASH              &qs_1            &qs_2  &qs_3  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END     &kp PG_UP
 &mt LSHIFT KP_MULTIPLY    &qs_4            &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT   &kp DEL
 &kp KP_COMMA              &qs_7            &qs_8  &qs_9  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_MENU  &kp PG_DN
-&kp_tog_behavior LCTRL 5  &mt LCTRL ENTER                                                                               &none       &none
+&kp_tog_behavior LCTRL 6  &mt LCTRL ENTER                                                                               &none       &none
             >;
         };
     };
@@ -481,8 +452,8 @@
         compatible = "zmk,conditional-layers";
 
         function {
-            if-layers = <2 3>;
-            then-layer = <4>;
+            if-layers = <3 4>;
+            then-layer = <5>;
         };
     };
 };
