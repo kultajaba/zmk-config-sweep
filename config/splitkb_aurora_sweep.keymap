@@ -379,26 +379,36 @@
             flavor = "balanced";
             tapping-term-ms = <200>;
         };
+
+        qs_dot_com: qs_dot_com {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_DOT_COM";
+            bindings = <&kp COMMA>, <&kp PERIOD>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL)>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        qwerty_layer {
+        default_layer {
             bindings = <
-&kp Q                 &kp W      &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I      &kp O       &kp P
-&kp A                 &kp S      &kp D  &kp F  &kp G    &kp H  &kp J  &kp K      &kp L       &kp SEMICOLON
-&kp Z                 &kp X      &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp PERIOD  &kp SQT
+&kp SQT               &kp W      &kp D  &kp R  &kp P    &kp J  &kp K  &kp U      &kp Y       &kp SEMI
+&kp A                 &kp S      &kp E  &kp T  &kp G    &kp H  &kp N  &kp I      &kp L       &kp O
+&kp Z                 &kp X      &kp C  &kp V  &kp B    &kp F  &kp M  &kp COMMA  &kp PERIOD  &kp Q
 &mo_tog_behavior 3 5  &kp SPACE                                                  &kp RSHIFT  &mo 2
             >;
         };
 
-        aewdrp_layer {
+        qwerty_layer {
             bindings = <
-&kp SQT  &trans  &kp D   &trans  &kp P     &kp J   &kp K   &kp U   &kp Y   &kp SEMICOLON
-&trans   &trans  &kp E   &kp T   &trans    &trans  &kp N   &kp I   &trans  &kp O
-&trans   &trans  &trans  &trans  &trans    &kp F   &trans  &trans  &trans  &kp Q
-&trans   &trans                                                    &trans  &trans
+&kp Q   &trans  &kp E   &trans  &kp T     &kp Y   &kp U   &kp I   &kp O   &kp P
+&trans  &trans  &kp D   &kp F   &trans    &trans  &kp J   &kp K   &trans  &kp SEMI
+&trans  &trans  &trans  &trans  &trans    &kp N   &trans  &trans  &trans  &kp SQT
+&trans  &trans                                                    &trans  &trans
             >;
         };
 
@@ -411,30 +421,30 @@
             >;
         };
 
-        command_layer {
+        nav-sq_layer {
             bindings = <
-&kp ESCAPE           &qs_w               &qs_d         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END     &kp PG_UP
-&mod_mod_a LSHIFT 0  &mod_mod_s LCTRL 0  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT   &kp DEL
-&qs_z                &qs_x               &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_MENU  &kp PG_DN
-&trans               &none                                                                                                  &none       &trans
+&kp ESCAPE           &qs_w               &qs_d         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
+&mod_mod_a LSHIFT 0  &mod_mod_s LCTRL 0  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
+&qs_z                &qs_x               &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
+&trans               &none                                                                                                  &none      &trans
             >;
         };
 
         func_layer {
             bindings = <
-&tog 1        &kp C_VOL_DN             &kp C_MUTE  &kp C_VOL_UP     &bt BT_NXT    &kp PRINTSCREEN  &kp F1  &kp F2   &kp F3   &kp F4
-&sk LSHIFT    &sk LCTRL                &sk LWIN    &sk LALT         &bt BT_PRV    &kp CAPSLOCK     &kp F5  &kp F6   &kp F7   &kp F8
-&out OUT_TOG  &mt C_REWIND C_PREVIOUS  &kp C_PP    &mt C_FF C_NEXT  &bt BT_CLR    &kp SCROLLLOCK   &kp F9  &kp F10  &kp F11  &kp F12
-&trans        &none                                                                                                 &none    &trans
+&tog 1        &mt C_REWIND C_PREV  &kp C_PP    &mt C_FAST_FORWARD C_NEXT  &bt BT_NXT    &kp PRINTSCREEN  &kp F1  &kp F2   &kp F3   &kp F4
+&sk LSHIFT    &sk LCTRL            &sk LWIN    &sk LALT                   &bt BT_PRV    &kp CAPSLOCK     &kp F5  &kp F6   &kp F7   &kp F8
+&out OUT_TOG  &kp C_VOL_DN         &kp C_MUTE  &kp C_VOL_UP               &bt BT_CLR    &kp SCROLLLOCK   &kp F9  &kp F10  &kp F11  &kp F12
+&trans        &none                                                                                                       &none    &trans
             >;
         };
 
-        num-nav_layer {
+        num-lk_layer {
             bindings = <
-&kp KP_SLASH              &qs_7            &qs_8  &qs_9  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW         &kp END      &kp PG_UP
-&mt LSHIFT KP_MULTIPLY    &qs_4            &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &mt RWIN DOWN_ARROW  &kp RIGHT    &kp DEL
-&kp KP_COMMA              &qs_1            &qs_2  &qs_3  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS              &kp K_CMENU  &kp PG_DN
-&kp_tog_behavior LCTRL 5  &mt LCTRL ENTER                                                                               &none        &none
+&kp KP_SLASH              &qs_7      &qs_8  &qs_9  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW  &kp END      &kp PG_UP
+&mt LSHIFT KP_MULTIPLY    &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &kp DOWN      &kp RIGHT    &kp DEL
+&qs_dot_com               &qs_1      &qs_2  &qs_3  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS       &kp K_CMENU  &kp PG_DN
+&kp_tog_behavior LCTRL 5  &kp ENTER                                                                        &none        &none
             >;
         };
     };
