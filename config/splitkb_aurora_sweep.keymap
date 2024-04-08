@@ -39,16 +39,17 @@
             layers = <5>;
         };
 
-        qsdot {
-            bindings = <&kp PERIOD>;
-            key-positions = <30 20>;
-            layers = <5>;
-            timeout-ms = <175>;
+        symlaycombo {
+            bindings = <&sym2combo>;
+            key-positions = <31 33>;
+            timeout-ms = <200>;
         };
 
-        symlaycombo {
-            bindings = <&mo 2>;
-            key-positions = <31 33>;
+        ctrl_cklick {
+            bindings = <&none>;
+            key-positions = <20 21>;
+            timeout-ms = <200>;
+            layers = <0 1>;
         };
     };
 
@@ -99,6 +100,13 @@
             label = "SUPERO";
             wait-ms = <30>;
             tap-ms = <30>;
+        };
+
+        sym2combo: sym2combo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mo 2 &kp LSHIFT>;
+            label = "SYM2COMBO";
         };
     };
 
@@ -400,6 +408,34 @@
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
+
+        qs_slash: qs_slash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_SLASH";
+            bindings = <&kp KP_DIVIDE>, <&kp ESCAPE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        qs_star: qs_star {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QS_STAR";
+            bindings = <&kp KP_MULTIPLY>, <&kp BACKSPACE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mod_mod_star: mod_mod_star {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_MOD_STAR";
+            bindings = <&kp>, <&qs_star>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -452,8 +488,8 @@
 
         num-lk_layer {
             bindings = <
-&kp KP_SLASH              &qs_7      &qs_8  &qs_9  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW  &kp END      &kp PG_UP
-&mt LSHIFT KP_MULTIPLY    &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &kp DOWN      &kp RIGHT    &kp DEL
+&qs_slash                 &qs_7      &qs_8  &qs_9  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW  &kp END      &kp PG_UP
+&mod_mod_star LSHIFT 0    &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &kp DOWN      &kp RIGHT    &kp DEL
 &qs_dot_com               &qs_1      &qs_2  &qs_3  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS       &kp K_CMENU  &kp PG_DN
 &kp_tog_behavior LCTRL 5  &kp ENTER                                                                        &none        &none
             >;
