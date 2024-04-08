@@ -200,10 +200,10 @@
             keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
         };
 
-        qs_d: qs_d {
+        qs_y: qs_y {
             compatible = "zmk,behavior-mod-morph";
-            label = "QS_D";
-            bindings = <&kp LC(D)>, <&kp D>;
+            label = "QS_Y";
+            bindings = <&kp LC(Y)>, <&kp Y>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
@@ -443,7 +443,7 @@
 
         default_layer {
             bindings = <
-&kp SQT               &kp W      &kp D  &kp R  &kp P    &kp J  &kp K  &kp U      &kp Y       &kp SEMI
+&kp SQT               &kp D      &kp Y  &kp P  &kp W    &kp J  &kp K  &kp U      &kp R       &kp SEMI
 &kp A                 &kp S      &kp E  &kp T  &kp G    &kp H  &kp N  &kp I      &kp L       &kp O
 &kp Z                 &kp X      &kp C  &kp V  &kp B    &kp F  &kp M  &kp COMMA  &kp PERIOD  &kp Q
 &mo_tog_behavior 3 5  &kp SPACE                                                  &kp RSHIFT  &mo 2
@@ -452,7 +452,7 @@
 
         qwerty_layer {
             bindings = <
-&kp Q   &trans  &kp E   &trans  &kp T     &kp Y   &kp U   &kp I   &kp O   &kp P
+&kp Q   &kp W   &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I   &kp O   &kp P
 &trans  &trans  &kp D   &kp F   &trans    &trans  &kp J   &kp K   &trans  &kp SEMI
 &trans  &trans  &trans  &trans  &trans    &kp N   &trans  &trans  &trans  &kp SQT
 &trans  &trans                                                    &trans  &trans
@@ -470,7 +470,7 @@
 
         nav-sq_layer {
             bindings = <
-&kp ESCAPE           &qs_w               &qs_d         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
+&kp ESCAPE           &qs_w               &qs_y         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
 &mod_mod_a LSHIFT 0  &mod_mod_s LCTRL 0  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
 &qs_z                &qs_x               &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
 &trans               &none                                                                                                  &none      &trans
