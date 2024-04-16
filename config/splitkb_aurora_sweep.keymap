@@ -25,13 +25,6 @@
             timeout-ms = <200>;
         };
 
-        save_as {
-            bindings = <&kp LC(LS(S))>;
-            key-positions = <10 11>;
-            timeout-ms = <200>;
-            layers = <3>;
-        };
-
         num-lk-toggle {
             bindings = <&kp KP_NUMLOCK>;
             key-positions = <4 3>;
@@ -43,13 +36,6 @@
             bindings = <&sym2combo>;
             key-positions = <31 33>;
             timeout-ms = <200>;
-        };
-
-        ctrl_cklick {
-            bindings = <&none>;
-            key-positions = <20 21>;
-            timeout-ms = <200>;
-            layers = <0 1>;
         };
     };
 
@@ -160,46 +146,6 @@
             keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
         };
 
-        qs_b: qs_b {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_B";
-            bindings = <&kp LC(B)>, <&kp B>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
-            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
-        };
-
-        qs_n: qs_n {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_N";
-            bindings = <&kp LC(N)>, <&kp N>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
-            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
-        };
-
-        qs_p: qs_p {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_P";
-            bindings = <&kp LC(P)>, <&kp P>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
-            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
-        };
-
-        qs_r: qs_r {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_R";
-            bindings = <&kp LC(R)>, <&kp R>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
-            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
-        };
-
         qs_y: qs_y {
             compatible = "zmk,behavior-mod-morph";
             label = "QS_Y";
@@ -218,16 +164,6 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
             keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
-        };
-
-        mod_mod_t: mod_mod_t {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOD_MOD_T";
-            bindings = <&kp>, <&qs_t>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
         };
 
         qs_t: qs_t {
@@ -258,26 +194,6 @@
             #binding-cells = <0>;
             mods = <(MOD_LGUI|MOD_LCTL|MOD_LALT)>;
             keep-mods = <(MOD_LGUI|MOD_LCTL|MOD_LALT)>;
-        };
-
-        mod_mod_s: mod_mod_s {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOD_MOD_S";
-            bindings = <&kp>, <&qs_s>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-        };
-
-        mod_mod_a: mod_mod_a {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOD_MOD_A";
-            bindings = <&kp>, <&qs_a>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
         };
 
         qs_1: qs_1 {
@@ -470,10 +386,10 @@
 
         nav-sq_layer {
             bindings = <
-&kp ESCAPE           &qs_w               &qs_y         &qs_r              &qs_p    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
-&mod_mod_a LSHIFT 0  &mod_mod_s LCTRL 0  &kp LEFT_WIN  &mod_mod_t LALT 0  &qs_n    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
-&qs_z                &qs_x               &qs_c         &qs_v              &qs_b    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
-&trans               &none                                                                                                  &none      &trans
+&kp ESCAPE  &kp O      &qs_y     &kp R     &kp F    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
+&sk LSHIFT  &sk LCTRL  &sk LWIN  &sk LALT  &kp N    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
+&qs_z       &qs_x      &qs_c     &qs_v     &kp H    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
+&trans      &none                                                                            &kp SPACE  &trans
             >;
         };
 
@@ -488,10 +404,10 @@
 
         num-lk_layer {
             bindings = <
-&qs_slash                 &qs_7      &qs_8  &qs_9  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW  &kp END      &kp PG_UP
-&mod_mod_star LSHIFT 0    &qs_4      &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &kp DOWN      &kp RIGHT    &kp DEL
-&qs_dot_com               &qs_1      &qs_2  &qs_3  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS       &kp K_CMENU  &kp PG_DN
-&kp_tog_behavior LCTRL 5  &kp ENTER                                                                        &none        &none
+&qs_slash               &qs_7   &qs_8  &qs_9  &kp KP_PLUS     &kp ESC    &kp HOME       &kp UP_ARROW  &kp END      &kp PG_UP
+&mod_mod_star LSHIFT 0  &qs_4   &qs_5  &qs_6  &qs_0           &kp TAB    &kp LEFT       &kp DOWN      &kp RIGHT    &kp DEL
+&qs_dot_com             &qs_1   &qs_2  &qs_3  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE  &kp INS       &kp K_CMENU  &kp PG_DN
+&kp LCTRL               &tog 5                                                                        &none        &none
             >;
         };
     };
