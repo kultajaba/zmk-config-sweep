@@ -15,7 +15,7 @@
 
         lenter {
             bindings = <&kp ENTER>;
-            key-positions = <30 31>;
+            key-positions = <23 24>;
             timeout-ms = <200>;
         };
 
@@ -32,10 +32,9 @@
             layers = <6>;
         };
 
-        symlaycombo {
-            bindings = <&sym2combo>;
-            key-positions = <31 33>;
-            timeout-ms = <200>;
+        ldel {
+            bindings = <&kp DELETE>;
+            key-positions = <13 14>;
         };
     };
 
