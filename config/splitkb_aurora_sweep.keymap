@@ -156,46 +156,6 @@
             keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
         };
 
-        qs_w: qs_w {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_W";
-            bindings = <&kp LC(W)>, <&kp W>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
-            keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
-        };
-
-        qs_t: qs_t {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_T";
-            bindings = <&kp LC(T)>, <&kp T>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LGUI|MOD_LCTL|MOD_LSFT)>;
-            keep-mods = <(MOD_LGUI|MOD_LCTL|MOD_LSFT)>;
-        };
-
-        qs_s: qs_s {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_S";
-            bindings = <&kp LC(S)>, <&kp S>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LGUI)>;
-            keep-mods = <(MOD_LSFT|MOD_LGUI)>;
-        };
-
-        qs_a: qs_a {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_A";
-            bindings = <&kp LC(A)>, <&kp A>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LGUI|MOD_LCTL|MOD_LALT)>;
-            keep-mods = <(MOD_LGUI|MOD_LCTL|MOD_LALT)>;
-        };
-
         qs_1: qs_1 {
             compatible = "zmk,behavior-mod-morph";
             label = "QS_1";
@@ -352,6 +312,16 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
+
+        kp_sk_behavior: kp_sk_behavior {
+            compatible = "zmk,behavior-hold-tap";
+            label = "KP_SK_BEHAVIOR";
+            bindings = <&kp>, <&sk>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -386,17 +356,17 @@
 
         nav-sq_layer {
             bindings = <
-&kp ESCAPE  &kp O      &qs_y     &kp R     &kp F    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
-&sk LSHIFT  &sk LCTRL  &sk LWIN  &sk LALT  &kp N    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
-&qs_z       &qs_x      &qs_c     &qs_v     &kp H    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
-&trans      &none                                                                            &kp SPACE  &trans
+&kp ESCAPE                     &kp O                        &qs_y                      &kp R                      &kp F    &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
+&kp_sk_behavior LSHIFT LSHIFT  &kp_sk_behavior LCTRL LCTRL  &kp_sk_behavior LWIN LWIN  &kp_sk_behavior LALT LALT  &kp N    &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
+&qs_z                          &qs_x                        &qs_c                      &qs_v                      &kp H    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
+&trans                         &none                                                                                                                                &kp SPACE  &trans
             >;
         };
 
         func_layer {
             bindings = <
 &tog 1        &mt C_REWIND C_PREV  &kp C_PP    &mt C_FAST_FORWARD C_NEXT  &bt BT_NXT    &kp PRINTSCREEN  &kp F1  &kp F2   &kp F3   &kp F4
-&sk LSHIFT    &sk LCTRL            &sk LWIN    &sk LALT                   &bt BT_PRV    &kp CAPSLOCK     &kp F5  &kp F6   &kp F7   &kp F8
+&kp LSHIFT    &kp LCTRL            &kp LWIN    &kp LALT                   &bt BT_PRV    &kp CAPSLOCK     &kp F5  &kp F6   &kp F7   &kp F8
 &out OUT_TOG  &kp C_VOL_DN         &kp C_MUTE  &kp C_VOL_UP               &bt BT_CLR    &kp SCROLLLOCK   &kp F9  &kp F10  &kp F11  &kp F12
 &trans        &none                                                                                                       &none    &trans
             >;
