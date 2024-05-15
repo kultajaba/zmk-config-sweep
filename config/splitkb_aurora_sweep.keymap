@@ -346,10 +346,10 @@
 
         sym_layer {
             bindings = <
-&kp GRAVE                &kp LS(NUMBER_2)      &kp HASH       &kp LC(LA(NUMBER_3))   &kp PERCENT    &kp LS(NUMBER_6)   &kp LS(N7)  &kp LS(N8)     &kp LS(N9)     &kp LS(N0)
-&kp LC(LA(NON_US_BSLH))  &kp LC(LA(NUMBER_4))  &kp LC(LA(E))  &kp LS(RIGHT_BRACKET)  &supero        &kp EQUAL          &kp EXCL    &kp LS(MINUS)  &kp SLASH      &kp BACKSLASH
-&kp NON_US_BSLH          &kp LS(NON_US_BSLH)   &super2        &super3                &none          &kp RIGHT_BRACKET  &none       &none          &kp LS(SLASH)  &kp LS(BACKSLASH)
-&trans                   &mo 3                                                                                                                    &none          &trans
+&kp GRAVE                &kp LS(NUMBER_2)      &kp HASH       &kp LC(LA(NUMBER_3))   &kp PERCENT    &kp LS(NUMBER_6)   &kp LS(N7)         &kp LS(N8)     &kp LS(N9)     &kp LS(N0)
+&kp LC(LA(NON_US_BSLH))  &kp LC(LA(NUMBER_4))  &kp LC(LA(E))  &kp LS(RIGHT_BRACKET)  &supero        &kp EQUAL          &kp EXCL           &kp LS(MINUS)  &kp SLASH      &kp BACKSLASH
+&kp NON_US_BSLH          &kp LS(NON_US_BSLH)   &super2        &super3                &none          &kp RIGHT_BRACKET  &kp LC(LA(MINUS))  &none          &kp LS(SLASH)  &kp LS(BACKSLASH)
+&trans                   &mo 3                                                                                                                           &none          &trans
             >;
         };
 
