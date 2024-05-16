@@ -37,7 +37,7 @@
         };
 
         dot {
-            bindings = <&kp KP_DOT>;
+            bindings = <&kp DOT>;
             key-positions = <20 21>;
             layers = <2>;
         };
@@ -106,15 +106,6 @@
     };
 
     behaviors {
-        mo_tog_behavior: mo_tog_behavior {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MO_TOG_BEHAVIOR";
-            bindings = <&mo>, <&tog>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
         qs_c: qs_c {
             compatible = "zmk,behavior-mod-morph";
             label = "QS_C";
@@ -165,106 +156,6 @@
             keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
         };
 
-        qs_1: qs_1 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_1";
-            bindings = <&kp KP_N1>, <&kp NUMBER_1>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_2: qs_2 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_2";
-            bindings = <&kp KP_N2>, <&kp NUMBER_2>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_3: qs_3 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_3";
-            bindings = <&kp KP_N3>, <&kp NUMBER_3>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_4: qs_4 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_4";
-            bindings = <&kp KP_N4>, <&kp NUMBER_4>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_5: qs_5 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_5";
-            bindings = <&kp KP_N5>, <&kp NUMBER_5>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_6: qs_6 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_6";
-            bindings = <&kp KP_N6>, <&kp N6>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_7: qs_7 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_7";
-            bindings = <&kp KP_NUMBER_7>, <&kp N7>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_8: qs_8 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_8";
-            bindings = <&kp KP_N8>, <&kp N8>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_9: qs_9 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_9";
-            bindings = <&kp KP_N9>, <&kp N9>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
-        qs_0: qs_0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_0";
-            bindings = <&kp KP_N0>, <&kp NUMBER_0>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_LCTL)>;
-            keep-mods = <(MOD_LSFT|MOD_LCTL)>;
-        };
-
         kp_tog_behavior: kp_tog_behavior {
             compatible = "zmk,behavior-hold-tap";
             label = "KP_TOG_BEHAVIOR";
@@ -283,43 +174,6 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-        };
-
-        qs_dot_com: qs_dot_com {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_DOT_COM";
-            bindings = <&kp COMMA>, <&kp PERIOD>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        qs_slash: qs_slash {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_SLASH";
-            bindings = <&kp KP_DIVIDE>, <&kp ESCAPE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        qs_star: qs_star {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QS_STAR";
-            bindings = <&kp KP_MULTIPLY>, <&kp BACKSPACE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        mod_mod_star: mod_mod_star {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOD_MOD_STAR";
-            bindings = <&kp>, <&qs_star>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
         };
 
         kp_sk_behavior: kp_sk_behavior {
@@ -358,7 +212,7 @@
             bindings = <
 &kp KP_SLASH     &kp N7        &kp N8        &kp N9        &kp KP_PLUS     &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
 &kp KP_MULTIPLY  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp N0          &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
-&kp KP_COMMA     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
+&kp COMMA        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MINUS    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
 &trans           &trans                                                                                             &trans     &trans
             >;
         };
