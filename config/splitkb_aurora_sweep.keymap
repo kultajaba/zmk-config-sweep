@@ -27,6 +27,7 @@
             bindings = <&kp J>;
             key-positions = <13 4>;
             layers = <0>;
+            timeout-ms = <300>;
         };
 
         K_combo {
@@ -75,7 +76,7 @@
 
         I_combo {
             bindings = <&kp I>;
-            key-positions = <13 24>;
+            key-positions = <11 2>;
             layers = <0>;
         };
 
@@ -83,12 +84,14 @@
             bindings = <&kp L>;
             key-positions = <1 12 13>;
             layers = <0>;
+            timeout-ms = <250>;
         };
 
         M_combo {
             bindings = <&kp M>;
             key-positions = <11 12 23>;
             layers = <0>;
+            timeout-ms = <300>;
         };
 
         F_combo {
@@ -101,6 +104,7 @@
             bindings = <&kp Q>;
             key-positions = <0 1 2>;
             layers = <0>;
+            timeout-ms = <280>;
         };
 
         home_combo {
@@ -118,6 +122,7 @@
         aomlaut_combo {
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <10 1 2>;
+            timeout-ms = <300>;
         };
     };
 
@@ -427,13 +432,6 @@
             bindings = <&calc_macro>, <&kp>;
         };
 
-        shift_lock_behavior: shift_lock_behavior {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SHIFT_LOCK_BEHAVIOR";
-            #binding-cells = <0>;
-            bindings = <&kp_sk_behavior LSHFT LSHIFT>, <&caps_word>;
-        };
-
         lrp_behavior: lrp_behavior {
             compatible = "zmk,behavior-hold-tap";
             label = "LRP_BEHAVIOR";
@@ -496,10 +494,10 @@
 
         nav_layer {
             bindings = <
-&kp ESCAPE                   &kp BACKSPACE              &kp UP_ARROW               &kp DELETE  &kp PG_UP        &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
-&shift_lock_behavior         &kp LEFT                   &kp DOWN                   &kp RIGHT   &kp TAB          &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
-&kp_sk_behavior LCTRL LCTRL  &kp_sk_behavior LWIN LWIN  &kp_sk_behavior LALT LALT  &kp ENTER   &kp PAGE_DOWN    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
-&trans                       &trans                                                                                                                      &trans     &trans
+&kp ESCAPE                    &kp BACKSPACE              &kp UP_ARROW               &kp DELETE  &kp PG_UP        &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
+&kp_sk_behavior LSHFT LSHIFT  &kp LEFT                   &kp DOWN                   &kp RIGHT   &kp TAB          &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
+&kp_sk_behavior LCTRL LCTRL   &kp_sk_behavior LWIN LWIN  &kp_sk_behavior LALT LALT  &kp ENTER   &kp PAGE_DOWN    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
+&trans                        &trans                                                                                                                      &trans     &trans
             >;
         };
 
