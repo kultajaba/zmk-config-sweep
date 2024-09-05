@@ -13,6 +13,8 @@
 
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE A B C D E F G H I J K L M N O P Q R S T U V W X Y Z APOSTROPHE SEMI LEFT_BRACKET>; };
 
+&sk { release-after-ms = <2500>; };
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -84,7 +86,7 @@
             bindings = <&kp L>;
             key-positions = <1 12 13>;
             layers = <0>;
-            timeout-ms = <250>;
+            timeout-ms = <300>;
         };
 
         M_combo {
@@ -313,6 +315,7 @@
             flavor = "balanced";
             tapping-term-ms = <300>;
             hold-while-undecided;
+            hold-while-undecided-linger;
         };
 
         F1_behavior: F1_behavior {
