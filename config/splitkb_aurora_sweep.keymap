@@ -494,10 +494,10 @@
 
         nav_layer {
             bindings = <
-&kp ESCAPE                    &kp BACKSPACE              &kp UP_ARROW               &kp DELETE  &kp PG_UP        &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
-&kp_sk_behavior LSHFT LSHIFT  &kp LEFT                   &kp DOWN                   &kp RIGHT   &kp TAB          &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
-&kp_sk_behavior LCTRL LCTRL   &kp_sk_behavior LWIN LWIN  &kp_sk_behavior LALT LALT  &kp ENTER   &kp PAGE_DOWN    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
-&trans                        &trans                                                                                                                      &trans     &trans
+&kp ESCAPE                   &kp BACKSPACE              &kp UP_ARROW               &kp DELETE  &kp PG_UP        &kp ESC    &kp HOME        &kp UP_ARROW  &kp END    &kp PG_UP
+&kp_sk_behavior LSHFT LSHFT  &kp LEFT                   &kp DOWN                   &kp RIGHT   &kp TAB          &kp TAB    &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &kp DEL
+&kp_sk_behavior LCTRL LCTRL  &kp_sk_behavior LWIN LWIN  &kp_sk_behavior LALT LALT  &kp ENTER   &kp PAGE_DOWN    &kp ENTER  &kp BACKSPACE   &kp INS       &kp K_APP  &kp PG_DN
+&trans                       &trans                                                                                                                      &trans     &trans
             >;
         };
 
