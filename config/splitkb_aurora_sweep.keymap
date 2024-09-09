@@ -123,6 +123,7 @@
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <10 1 2>;
             timeout-ms = <300>;
+            layers = <0>;
         };
     };
 
