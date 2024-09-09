@@ -9,8 +9,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-&lt { require-prior-idle-ms = <250>; };
-
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE A B C D E F G H I J K L M N O P Q R S T U V W X Y Z APOSTROPHE SEMI LEFT_BRACKET>; };
 
 &sk { release-after-ms = <2500>; };
@@ -454,7 +452,7 @@
 &kp SQT                &kp D        &kp Y  &kp P  &kp W    &kp J  &kp K  &kp U      &kp R       &kp SEMI
 &kp A                  &kp S        &kp E  &kp T  &kp G    &kp H  &kp N  &kp I      &kp L       &kp O
 &kp Z                  &kp X        &kp C  &kp V  &kp B    &kp F  &kp M  &kp COMMA  &kp PERIOD  &kp Q
-&lrp_behavior 5 LCTRL  &lt 2 SPACE                                                  &kp RSHIFT  &lt 3 BACKSPACE
+&lrp_behavior 5 LCTRL  &lt 2 SPACE                                                  &kp RSHIFT  &mo 3
             >;
         };
 
@@ -471,7 +469,7 @@
             bindings = <
 &calc_behavior 0 KP_SLASH  &F7_behavior 0 N7  &F8_behavior 0 N8  &F9_behavior 0 N9  &F12_behavior 0 MINUS    &none  &none  &none  &none   &none
 &mt LSHIFT KP_MULTIPLY     &F4_behavior 0 N4  &F5_behavior 0 N5  &F6_behavior 0 N6  &F10_behavior 0 N0       &none  &none  &none  &none   &none
-&mt LCTRL COMMA            &F1_behavior 0 N1  &F2_behavior 0 N2  &F3_behavior 0 N3  &F11_behavior 0 SLASH    &none  &none  &none  &none   &kp PG_DN
+&mt LCTRL COMMA            &F1_behavior 0 N1  &F2_behavior 0 N2  &F3_behavior 0 N3  &F11_behavior 0 SLASH    &none  &none  &none  &none   &none
 &trans                     &trans                                                                                                 &trans  &trans
             >;
         };
