@@ -450,7 +450,7 @@
 
         default_layer {
             bindings = <
-&kp SQT                &kp D        &kp Y  &kp P  &kp W    &kp J  &kp K  &kp U      &kp R       &kp SEMI
+&kp SQT                &kp D        &kp Y  &kp P  &kp L    &kp J  &kp K  &kp U      &kp R       &kp SEMI
 &kp A                  &kp S        &kp E  &kp T  &kp G    &kp H  &kp N  &kp I      &kp L       &kp O
 &kp Z                  &kp X        &kp C  &kp V  &kp B    &kp F  &kp M  &kp COMMA  &kp PERIOD  &kp Q
 &lrp_behavior 5 LCTRL  &lt 2 SPACE                                                  &kp RSHIFT  &mo 3
